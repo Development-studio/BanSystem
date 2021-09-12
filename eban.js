@@ -41,7 +41,17 @@ mc.regConsoleCmd("ban","ban player",function(args){
     }
 });
 
-
+mc.regConsoleCmd("unban","unban player",function(args){
+	if (args[0] !== undefined) {
+		let banlist = JSON.parse(file.readFrom(path));
+		for (let i = 0; i < banlist.length; i++) {
+			if (args[0] === banlist[i]['Nick']) {
+				unbanObj = `, {${banlist[i]['Nick']}, ${banlist[i]['ID']}}`;
+				String(banlist).replace(unbanObj, 'null');
+			}
+		}
+	}
+});
 
 mc.listen("onJoin", function(pl) {
     let banlist = JSON.parse(file.readFrom(path));
