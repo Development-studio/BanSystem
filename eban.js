@@ -60,13 +60,20 @@ mc.regConsoleCmd("unban", "unban player", function(args) {
         let banlist = JSON.parse(file.readFrom(path));
         for (let i = 0; i < banlist.length; i++) {
             if (args[0] === banlist[i]['Nick']) {
-                unbanObj = `{"Nick":"${banlist[i]['Nick']}","ID":"${banlist[i]['ID']}"}`;
+                unbanObj = `,{"Nick":"${banlist[i]['Nick']}","ID":"${banlist[i]['ID']}"}`;
                 banlist = String(JSON.stringify(banlist));
                 rewrite = banlist.replace(unbanObj, '');
                 file.writeTo(path, rewrite)
                 log('[EBan] ' + 'Success!')
             }
         }
+    }
+});
+
+mc.regConsoleCmd("elist", "check ban players", function(args) {
+    let banlist = JSON.parse(file.readFrom(path));
+    for (let i = 0; i < banlist.length; i++) {
+        log('banned player: ' + banlist[i]['Nick'])
     }
 });
 
