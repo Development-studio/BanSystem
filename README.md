@@ -7,7 +7,7 @@ For unban the player u need type: unban "player_nick"
 
 For check all ban player use "elist"
 
-All Nick and clientID will write to /pligins/Eban/banlist.json/ (example below)
+All Nick and clientID will write to /plugins/Eban/banlist.json/ (example below)
 
 ![image](https://user-images.githubusercontent.com/59438110/132989591-3681e32a-92cd-4b2d-b0c1-a9a1e9bb3024.png)
 
